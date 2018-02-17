@@ -13,6 +13,15 @@ import com.udacity.sandwichclub.utils.JsonUtils;
 
 import java.util.List;
 
+/**
+ * Created by karenulmer on 2/17/2018.
+ * For coding guide and corrections, the following  were used as my reference:
+ * https://github.com/aviaryan
+ * https://github.com/jordiguzman
+ * https://discussions.udacity.com/t/help-in-sandwich-club-project/548082/46
+ * https://googledevndscholars.slack.com
+ */
+
 public class DetailActivity extends AppCompatActivity {
 
     public static final String EXTRA_POSITION = "extra_position";
