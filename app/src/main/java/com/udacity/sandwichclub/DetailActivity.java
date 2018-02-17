@@ -17,7 +17,7 @@ public class DetailActivity extends AppCompatActivity {
 
     public static final String EXTRA_POSITION = "extra_position";
     private static final int DEFAULT_POSITION = -1;
-    private TextView origin;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,11 +64,13 @@ public class DetailActivity extends AppCompatActivity {
 
 
         // FindViewByID
+        TextView name = findViewById(R.id.name_tv);
         TextView alsoKnownAs = findViewById(R.id.also_known_tv);
         TextView origin = findViewById(R.id.origin_tv);
         TextView description = findViewById(R.id.description_tv);
         TextView ingredients = findViewById(R.id.ingredients_tv);
 
+        name.setText(sandwich.getMainName());
 
         //Set text for place of origin
         if (sandwich.getPlaceOfOrigin().isEmpty()) {
@@ -76,6 +78,7 @@ public class DetailActivity extends AppCompatActivity {
             origin.setText(R.string.no_data);
         } else {
             origin.setText(sandwich.getPlaceOfOrigin());
+            //origin.setText(noData(sandwich.getPlaceOfOrigin()));
         }
 
         // Set text for description
@@ -84,6 +87,7 @@ public class DetailActivity extends AppCompatActivity {
             description.setText(R.string.no_data);
         } else {
             description.setText(sandwich.getDescription());
+            //description.setText(noData(sandwich.getDescription()));
         }
 
         //Set text for also known as
@@ -94,48 +98,63 @@ public class DetailActivity extends AppCompatActivity {
             alsoKnownAs.setText(R.string.no_data);
 
         } else {
-            String resultForAKA = "";
+            String result = "";
             for (String s : alsoKnown) {
-                resultForAKA += s + ", ";
+                result += s + ", ";
             }
 
-            if (resultForAKA.length() > 0) {
-                resultForAKA = resultForAKA.substring(0, resultForAKA.length() - 2);
+            if (result.length() > 0) {
+                result = result.substring(0, result.length() - 2);
             }
-                alsoKnownAs.setText(resultForAKA);
+            alsoKnownAs.setText(result);
+            //alsoKnownAs.setText(noData(result));
+            //alsoKnownAs.setText(listMaker(sandwich.getAlsoKnownAs()));
 
-                //alsoKnownAs.setText(listMaker(sandwich.getAlsoKnownAs()));
-            }
+            result = "";
 
-        // Set text for ingredients
-        List<String> ingredientList = sandwich.getIngredients();
-        if (ingredientList.isEmpty()) {
-            //If there's no info to show
-            ingredients.setText(R.string.no_data);
-        } else {
-            String resultForIngredients = "";
-            for (String s : ingredientList)
-                resultForIngredients += s + "\n";
-            if (resultForIngredients.length() > 0) {
-                resultForIngredients = resultForIngredients.substring(0, resultForIngredients.length() - 2);
+            // Set text for ingredients
+            List<String> listIngredients = sandwich.getIngredients();
+            if (listIngredients.isEmpty()) {
+                //If there's no info to show
+                ingredients.setText(R.string.no_data);
+
+            } else {
+
+                for (String s : listIngredients) {
+                    result += s + "\n";
+
+                    //if (resultForIngredients.length() > 0) {
+                    //    resultForIngredients = resultForIngredients.substring(0, resultForIngredients.length() - 2);
+                }
+                ingredients.setText(result);
+                //ingredients.setText(noData(result));
+                //ingredients.setText(listMaker(sandwich.getIngredients()));
+
             }
-            ingredients.setText(resultForIngredients);
         }
-        //ingredients.setText(listMaker(sandwich.getIngredients()));
+    }
 
-        }
 
+
+    //private String noData(String s) {
+    //    if (s.equals("")) {
+    //        return getString(R.string.no_data);
+    //    } else {
+    //        return s;
+    //    }
+    //}
 
     //public StringBuilder listMaker(List<String> list){
     //   StringBuilder stringBuilder= new StringBuilder();
     //    for (int i=0;i<list.size();i++){
     //       stringBuilder.append(list.get(i)).append("\n");
-    //   }
+    //    }
     //return stringBuilder;
+    //}
+}
 
 
 
-    }
 
 
 
