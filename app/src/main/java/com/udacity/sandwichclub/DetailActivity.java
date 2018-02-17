@@ -78,7 +78,7 @@ public class DetailActivity extends AppCompatActivity {
             origin.setText(R.string.no_data);
         } else {
             origin.setText(sandwich.getPlaceOfOrigin());
-            //origin.setText(noData(sandwich.getPlaceOfOrigin()));
+
         }
 
         // Set text for description
@@ -87,7 +87,7 @@ public class DetailActivity extends AppCompatActivity {
             description.setText(R.string.no_data);
         } else {
             description.setText(sandwich.getDescription());
-            //description.setText(noData(sandwich.getDescription()));
+
         }
 
         //Set text for also known as
@@ -107,8 +107,6 @@ public class DetailActivity extends AppCompatActivity {
                 result = result.substring(0, result.length() - 2);
             }
             alsoKnownAs.setText(result);
-            //alsoKnownAs.setText(noData(result));
-            //alsoKnownAs.setText(listMaker(sandwich.getAlsoKnownAs()));
 
             result = "";
 
@@ -117,40 +115,18 @@ public class DetailActivity extends AppCompatActivity {
             if (listIngredients.isEmpty()) {
                 //If there's no info to show
                 ingredients.setText(R.string.no_data);
-
             } else {
 
                 for (String s : listIngredients) {
                     result += s + "\n";
-
-                    //if (resultForIngredients.length() > 0) {
-                    //    resultForIngredients = resultForIngredients.substring(0, resultForIngredients.length() - 2);
                 }
                 ingredients.setText(result);
-                //ingredients.setText(noData(result));
-                //ingredients.setText(listMaker(sandwich.getIngredients()));
+
 
             }
         }
     }
 
-
-
-    //private String noData(String s) {
-    //    if (s.equals("")) {
-    //        return getString(R.string.no_data);
-    //    } else {
-    //        return s;
-    //    }
-    //}
-
-    //public StringBuilder listMaker(List<String> list){
-    //   StringBuilder stringBuilder= new StringBuilder();
-    //    for (int i=0;i<list.size();i++){
-    //       stringBuilder.append(list.get(i)).append("\n");
-    //    }
-    //return stringBuilder;
-    //}
 }
 
 
