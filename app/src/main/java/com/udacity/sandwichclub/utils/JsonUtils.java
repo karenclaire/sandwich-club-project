@@ -33,7 +33,7 @@ public class JsonUtils {
             }
 
             // Extract the sandwich's place of origin
-            String placeOfOrigin = jsonObject.getString("place_of_origin");
+            String placeOfOrigin = jsonObject.getString("placeOfOrigin");
 
             // Extract the description of Sandwich
             String description = jsonObject.getString("description");
@@ -52,10 +52,12 @@ public class JsonUtils {
             //return Sandwich details
             return new Sandwich(mainName, alsoKnownAsList, placeOfOrigin, description, image, ingredientsList);
 
+
+
             // Catch the exception so the app doesn't crash, and print the error message to the logs.
         } catch (JSONException e) {
             Log.e("JsonUtils", "Problem parsing the Sandwich JSON results");
-            //e.printStackTrace();
+
         }
         return null;
     }
