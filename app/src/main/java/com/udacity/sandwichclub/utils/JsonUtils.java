@@ -10,6 +10,14 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
+/**
+ * Created by karenulmer on 2/17/2018.
+ * For coding guide and corrections, the following  were used as my reference:
+ * https://github.com/aviaryan
+ * https://github.com/jordiguzman
+ * https://discussions.udacity.com/t/help-in-sandwich-club-project/548082/46
+ * https://googledevndscholars.slack.com
+ */
 public class JsonUtils {
 
     public static Sandwich parseSandwichJson(String json) {
