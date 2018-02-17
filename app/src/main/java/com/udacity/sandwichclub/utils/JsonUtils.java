@@ -21,8 +21,8 @@ public class JsonUtils {
             JSONObject jsonObject = new JSONObject(json);
             JSONObject name = jsonObject.getJSONObject("name");
 
-            //Get Sandwich Name
-            String mainName = name.getString("mainName");
+            //Extract Sandwich Name
+            String mainName = name.optString("mainName");
 
             // Extract the JSONArray associated with "also known as,"
             // which represents a list of alternative names of a sandwich
@@ -32,13 +32,13 @@ public class JsonUtils {
                 alsoKnownAsList.add(alsoKnownAs.getString(i));
             }
 
-            // Get the sandwich's place of origin
+            // Extract the sandwich's place of origin
             String placeOfOrigin = jsonObject.getString("place_of_origin");
 
-            // Get the description of Sandwich
+            // Extract the description of Sandwich
             String description = jsonObject.getString("description");
 
-            // Get image of Sandwich
+            // Extract image of Sandwich
             String image = jsonObject.getString("image");
 
             // Extract the JSONArray associated with "ingredients,"
@@ -55,6 +55,7 @@ public class JsonUtils {
             // Catch the exception so the app doesn't crash, and print the error message to the logs.
         } catch (JSONException e) {
             Log.e("JsonUtils", "Problem parsing the Sandwich JSON results");
+            //e.printStackTrace();
         }
         return null;
     }
